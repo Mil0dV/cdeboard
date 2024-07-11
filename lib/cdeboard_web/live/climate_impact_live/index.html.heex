@@ -1,0 +1,40 @@
+<.header>
+  Listing Leaderboard
+  <:actions>
+    <.link patch={~p"/leaderboard/new"}>
+      <.button>New Climate impact</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="leaderboard"
+  rows={@streams.leaderboard}
+  row_click={fn {_id, climate_entries} -> JS.navigate(~p"/leaderboard/#{climate_entries}") end}
+>
+  <:action :let={{_id, climate_entries}}>
+    <div class="sr-only">
+      <.link navigate={~p"/leaderboard/#{climate_entries}"}>Show</.link>
+    </div>
+    <.link patch={~p"/leaderboard/#{climate_entries}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, climate_entries}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: climate_entries.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal :if={@live_action in [:new, :edit]} id="climate_entries-modal" show on_cancel={JS.patch(~p"/leaderboard")}>
+  <.live_component
+    module={CdeboardWeb.ClimateImpactLive.FormComponent}
+    id={@climate_entries.id || :new}
+    title={@page_title}
+    action={@live_action}
+    climate_entries={@climate_entries}
+    patch={~p"/leaderboard"}
+  />
+</.modal>
