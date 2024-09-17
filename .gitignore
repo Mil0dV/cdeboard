@@ -1,0 +1,113 @@
+# ===================================
+# Root-Level Ignored Files and Directories
+# ===================================
+
+# OS Generated Files
+# -------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor and IDE Configurations
+# -----------------------------
+# IntelliJ IDEA
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+
+# Log Files
+*.log
+
+# Backup and Temporary Files
+*.bak
+*.backup
+**/*.tmp
+**/*.temp
+
+# Environment Variable Files
+.env
+.env.*
+
+# ===================================
+# leaderboard_backend Specific Rules
+# ===================================
+leaderboard_backend/
+
+# Ignoring build artifacts for the backend
+# ----------------------------------------
+leaderboard_backend/target/
+leaderboard_backend/cargo-install/
+
+# If the backend has specific build directories, add them here
+# Example:
+# leaderboard_backend/build/
+
+# ===================================
+# leaderboard_frontend Specific Rules
+# ===================================
+leaderboard_frontend/
+
+# Ignoring build artifacts for the frontend
+# -----------------------------------------
+leaderboard_frontend/target/
+leaderboard_frontend/.trunk/
+leaderboard_frontend/dist/
+
+# If using wasm-pack instead of Trunk, uncomment the next line
+# leaderboard_frontend/pkg/
+
+# If the frontend includes Node.js dependencies
+leaderboard_frontend/node_modules/
+
+# If using Docker within frontend, ignore Docker files
+# leaderboard_frontend/Dockerfile
+# leaderboard_frontend/docker-compose.yml
+
+# ===================================
+# Global Tools and Dependencies
+# ===================================
+
+# Rust-specific
+# -------------
+# Remove Cargo.lock if this is a library
+# Uncomment the next line if you're developing a library
+# Cargo.lock
+
+# Built by `cargo install`
+/cargo-install/
+
+# Example of generated files by rustc
+/*.rs.bk
+
+# JavaScript/TypeScript Lock Files (if applicable)
+yarn.lock
+package-lock.json
+
+# ===================================
+# Optional: Docker (if used globally)
+# ===================================
+
+# Uncomment if Docker is used at the root level
+# Dockerfile
+# docker-compose.yml
+
+# ===================================
+# Additional Custom Rules
+# ===================================
+
+# Add any other global or specific ignore rules below
+

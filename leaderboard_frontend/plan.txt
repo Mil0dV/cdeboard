@@ -1,0 +1,65 @@
+1. Set Up the Project Environment
+
+    Install Necessary Tools:
+        Ensure you have the latest versions of Rust and Cargo installed.
+        Add the WebAssembly target (wasm32-unknown-unknown) to your Rust toolchain.
+        Install trunk, a build tool for Rust WASM applications.
+
+    Create a New Yew Project:
+        Initialize a new Rust project for your frontend.
+        Navigate into the project directory.
+
+    Update Project Dependencies:
+        In your project's configuration file (Cargo.toml), add dependencies for Yew, Serde, wasm-bindgen, and any other necessary libraries.
+
+    Set Up the HTML Template:
+        Create an index.html file with a basic HTML structure, including a root element for your Yew application.
+
+2. Define the Data Structures
+
+    Create the LeaderboardEntry Struct:
+        Define a data structure in your frontend that mirrors the LeaderboardEntry struct from the backend.
+        Ensure it includes fields for name, climate impact, and description.
+        Derive the necessary traits for serialization and cloning.
+
+3. Develop the Yew Components
+
+    Main Component Setup:
+        Create a main component (e.g., App or Model) to serve as the root of your application.
+        Initialize state variables to manage the leaderboard data and loading status.
+
+    Fetch Data on Component Mount:
+        Use Yew's effect hooks to trigger a data fetch when the component is mounted.
+        Implement asynchronous data fetching from the backend API endpoint (/leaderboard).
+
+    Handle Loading and Error States:
+        Display a loading indicator while data is being fetched.
+        Implement error handling to manage any issues during data retrieval.
+
+    Render the Leaderboard Entries:
+        Once data is fetched, update the state and render the list of leaderboard entries.
+        Map over the entries to display each one with its name, climate impact, and description.
+
+    Optional: Create Child Components:
+        For better code organization, create a separate component for individual leaderboard items.
+        Pass the entry data to the child component through properties (props).
+
+4. Fetch Data from the Backend
+
+    Asynchronous Data Fetching:
+        Use asynchronous functions and futures to handle data fetching within the Yew application.
+        Ensure that the fetch operation updates the application state upon success or failure.
+
+    Handle Cross-Origin Resource Sharing (CORS):
+        Configure your backend server to allow CORS requests from the frontend's origin.
+        This may involve adding middleware or specific headers in your backend configuration.
+
+5. Build and Run the Frontend
+
+    Run the Development Server:
+        Use trunk or a similar tool to build and serve your application locally.
+        Verify that the frontend is accessible via a web browser.
+
+    Test the Connection to the Backend:
+        Ensure that the frontend successfully fetches data from the backend and displays it correctly.
+        Monitor network requests to confirm that the API calls are being made as expected.
