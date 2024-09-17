@@ -45,7 +45,6 @@ Desktop.ini
 # ===================================
 # leaderboard_backend Specific Rules
 # ===================================
-leaderboard_backend/
 
 # Ignoring build artifacts for the backend
 # ----------------------------------------
@@ -59,7 +58,6 @@ leaderboard_backend/cargo-install/
 # ===================================
 # leaderboard_frontend Specific Rules
 # ===================================
-leaderboard_frontend/
 
 # Ignoring build artifacts for the frontend
 # -----------------------------------------

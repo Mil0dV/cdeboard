@@ -23,15 +23,19 @@ fn app() -> Html {
         let loading = loading.clone();
         use_effect_with_deps(move |_| {
             spawn_local(async move {
-                let fetched_entries: Vec<LeaderboardEntry> = Request::get("http://127.0.0.1:8081/leaderboard")
+                let mut fetched_entries: Vec<LeaderboardEntry> = Request::get("http://127.0.0.1:8081/leaderboard")
                     .send()
                     .await
                     .unwrap()
                     .json()
                     .await
                     .unwrap();
-                entries.borrow_mut().clear(); // Clear the vector
-                entries.borrow_mut().extend(fetched_entries); // Extend with new entries
+                
+                // Sort entries by climate impact (descending order)
+                fetched_entries.sort_by(|a, b| b.climate_impact.partial_cmp(&a.climate_impact).unwrap_or(std::cmp::Ordering::Equal));
+                
+                entries.borrow_mut().clear();
+                entries.borrow_mut().extend(fetched_entries);
                 loading.set(false);
             });
             || ()
