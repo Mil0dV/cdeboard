@@ -27,7 +27,7 @@ body {
 
 .leaderboard-table {
     width: 50%; /* Table width set to half the screen */
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     border-collapse: collapse;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -70,4 +70,50 @@ body {
 .entry-description {
     font-style: italic;
     color: #7f8c8d;
+}
+
+/* Add Entry Button */
+button {
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1f6391;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+form input, form textarea {
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+form button {
+    align-self: flex-start;
+    background-color: #27ae60;
+}
+
+form button:hover {
+    background-color: #1e8540;
+}
+
+/* Error Message Styling */
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
 }
